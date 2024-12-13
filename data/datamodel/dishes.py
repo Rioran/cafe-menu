@@ -17,3 +17,9 @@ class Dishes(SqlAlchemyBase):
     __table_args__ = (
         CheckConstraint('price > 0', name='check_price_positive'),
     )
+
+    def __repr__(self):
+        return (
+            f"Dishes(id={self.id}, dish_name='{self.dish_name}', description='{self.description}',"
+            f"photo={self.photo} price={self.price}, category_id={self.category_id})"
+        )

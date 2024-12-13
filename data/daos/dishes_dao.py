@@ -1,4 +1,5 @@
 from typing import Optional
+
 from data.db_utilities.session import CafeSession
 from data.datamodel.dishes import Dishes
 
@@ -36,6 +37,8 @@ class DishesDao:
         if dish:
             self.session.delete(dish)
             self.session.commit()
+        else:
+            raise ValueError(f'Dish with ID {dish_id} not found')
 
     def update_dish(
             self,

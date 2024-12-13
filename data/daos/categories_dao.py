@@ -21,6 +21,8 @@ class CategoriesDao:
         if category:
             self.session.delete(category)
             self.session.commit()
+        else:
+            raise ValueError(f'Category with ID {category_id} not found')
 
     def update_category(
             self,
